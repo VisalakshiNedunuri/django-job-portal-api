@@ -28,3 +28,19 @@ media/
 # Python cache
 *.pyo
 *.pyd
+
+# Python
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+
+# Django
+*.sqlite3
