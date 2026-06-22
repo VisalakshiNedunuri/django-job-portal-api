@@ -1,0 +1,30 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+env/
+virt/
+
+# Database
+db.sqlite3
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# Static files
+staticfiles/
+
+# Media uploads
+media/
+
+# Logs
+*.log
+
+# Python cache
+*.pyo
+*.pyd
