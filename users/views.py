@@ -30,16 +30,7 @@ def login_view(request):
         "username": user.username,
         "role": user.role
     })
-'''
 
-@api_view(["POST"])
-@permission_classes([AllowAny])
-def login_view(request):
-    print("Type:", type(request.data))
-    print("Data:", request.data)
-
-    return Response({"ok": True})
-'''
 User = get_user_model()
 
 

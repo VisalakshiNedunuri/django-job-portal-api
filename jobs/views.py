@@ -71,18 +71,7 @@ def create_job(request):
 
     return Response(serializer.errors)
 
-'''
-@api_view(["PUT"])
-def update_job(request, pk):
-    job = get_object_or_404(Job, id=pk)
 
-    serializer = JobSerializer(job, data=request.data, partial=True)
-
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-
-    return Response(serializer.errors)'''
 
 @api_view(["PUT"])
 def update_job(request, pk):
@@ -102,12 +91,7 @@ def update_job(request, pk):
 
     return Response(serializer.errors)
 
-'''
-@api_view(["DELETE"])
-def delete_job(request, pk):
-    job = get_object_or_404(Job, id=pk)
-    job.delete()
-    return Response({"message": "Job deleted successfully"})'''
+
 
 @api_view(["DELETE"])
 def delete_job(request, pk):

@@ -10,7 +10,7 @@ from .serializers import ApplicationStatusSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 
-
+'''
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def apply_job(request):
@@ -27,7 +27,32 @@ def apply_job(request):
         return Response(serializer.data)
 
     return Response(serializer.errors, status=400)
+'''
 
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def apply_job(request):
+    user = request.user
+
+    if user.role == "recruiter":
+        return Response({"error": "Recruiters cannot apply"}, status=403)
+
+    job_id = request.data.get("job")
+
+    #  prevent duplicate application
+    if Application.objects.filter(job_id=job_id, applicant=user).exists():
+        return Response(
+            {"error": "You already applied for this job"},
+            status=400
+        )
+
+    serializer = ApplicationSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save(applicant=user)
+        return Response(serializer.data)
+
+    return Response(serializer.errors, status=400)
 
 
 @api_view(['GET'])
