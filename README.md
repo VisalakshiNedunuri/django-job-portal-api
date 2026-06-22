@@ -1,4 +1,4 @@
-# 🚀 Django Job Portal API
+# 🚀 Django Job Portal 
 
 A RESTful Job Portal Backend built using **Django** and **Django REST Framework**.
 
